@@ -1,11 +1,9 @@
 name: Deploy Backend to AWS
 
 on:
-  workflow_dispatch:
-    # branches:
-    #   - main
-    # paths:
-    #   - backend/**  
+ push:
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -31,5 +29,5 @@ jobs:
         env:
           TAG: ${{ github.sha }}
         run: | 
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:${{ secrets.TAG }} -f backend/Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:${{ secrets.TAG }} -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/backend:${{ secrets.TAG }}
