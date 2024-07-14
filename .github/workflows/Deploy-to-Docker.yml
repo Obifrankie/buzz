@@ -30,4 +30,4 @@ jobs:
           TAG: ${{ github.sha }}
         run: | 
           docker build -t Obifrankie/buzz:latest -f Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          docker push Obifrankie/buzz:latest
