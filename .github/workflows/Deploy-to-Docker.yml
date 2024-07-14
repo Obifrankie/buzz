@@ -29,5 +29,5 @@ jobs:
         env:
           TAG: ${{ github.sha }}
         run: | 
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/buzz:${{ secrets.TAG }} -f Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/buzz:${{ secrets.TAG }}
+          docker build -t Obifrankie/buzz:${{ secrets.TAG }} -f Dockerfile .
+          docker push Obifrankie/buzz:${{ secrets.TAG }}
